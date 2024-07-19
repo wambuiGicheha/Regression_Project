@@ -12,9 +12,35 @@ The primary business problem is the need for a real estate agency to provide dat
 Using **kc_house_data.csv**, which contains _King County House Sales dataset_. The data provides insights into various aspects of house sales such as property features and sale prices.
 
 ## Methods
-
-This project uses descriptive analysis, including description of trends over time. T
-
+This project uses Linear modeling to infer over the relationship between the features in the dataset's ability predict property value. The steps taken for this approach is:
++ Inspecting and Cleaning the Data
++ Data Preparation
++ Exploratory Data Analysis (EDA)
+  1. Univariate Analysis
+  2. Bivariate Analysis
++ Plotting Categorical Values
++ Data Modelling
+    - Preprocessing
+    - Baseline Model
+       - Interpretation of Results
+    - First Iteration
+       - Check Assumptions
+       - Interpretation of Results
+    - Second Iteration
+        - Check Assumptions
+        - Interpretation of Results
+    - Third Iteration
+        - Check Assumptions
+        - Interpretation of Results
+    - Final model
+        - Check Assumptions
+        - Interpretation of Results
++ Model Validation
++ Contribution of Predictors
++ Conclusion
++ Recommendations
++ Next Steps
+    
 ## Results
 
 
@@ -25,15 +51,17 @@ This project uses descriptive analysis, including description of trends over tim
 
 
 ## Conclusions
+After several iterations of refining the model, the final model showed significant improvements:
 
-
+**Final Model Performance** - The _R-Squared_ value improved to **_0.83_**, indicating that **_83%_** of the variance in house prices can be explained by the model's features. The _RMSE_ of the final model **(0.7995)** was significantly lower than the initial baseline model **(256860.6115)**, indicating better predictive performance
 
 - 
 ### Next Steps
 
-Further analyses could yield additional insights to further improve operations at AAC:
+Further analyses could yield additional insights to further improve results:
+1. Feature Engineering - Create new features such as price per square foot, age of the property, and distance to key amenities. Consider the impact of renovations by calculating the difference between yr_built and yr_renovated.
+2. Geospatial Analysis - Use latitude and longitude data to visualize property locations and analyze spatial patterns. Identify hotspots for high-value properties and areas with potential for growth.
 
--
 ## For More Information
 
 
