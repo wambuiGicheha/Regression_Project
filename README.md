@@ -61,13 +61,15 @@ This project uses Linear modeling to infer over the relationship between the fea
   ```
            
    **Baseline Model**
-      ![image](https://github.com/user-attachments/assets/02e2ea3e-6c35-46f5-b19c-7bf06fae8fd9)
+    
                                                                                                                       
    **Final Model**
 
 
 
    ### Model Validation
+   ![image](https://github.com/user-attachments/assets/a63babbd-f39a-4b11-87e2-c2450491745a)
+
     Model Validation In this project, the model's validation was conducted using the following approaches:
     
       Residual Analysis:
