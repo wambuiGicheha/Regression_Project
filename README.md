@@ -61,35 +61,10 @@ This project uses Linear modeling to infer over the relationship between the fea
   ```
            
    **Baseline Model**
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
-import statsmodels.api as sm
-
-# Assuming `data` is a pandas DataFrame with columns 'sqft_living' and 'price'
-data = pd.read_csv('path_to_your_data.csv')  # Replace with the path to your data file
-
-X = data['sqft_living']
-y = data['price']
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-X_train_const = sm.add_constant(X_train)
-X_test_const = sm.add_constant(X_test)
-
-model = sm.OLS(y_train, X_train_const).fit()
-
-y_pred = model.predict(X_test_const)
-
-rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-
-print(model.summary())
-print(f'RMSE: {rmse}')
 
    
    **Final Model**
-     ![image](https://github.com/user-attachments/assets/05761ccc-e18d-45e4-b5bb-64609e472fa3)
+ ![image](https://github.com/user-attachments/assets/05761ccc-e18d-45e4-b5bb-64609e472fa3)
 
    ### Model Validation
     Model Validation In this project, the model's validation was conducted using the following approaches:
