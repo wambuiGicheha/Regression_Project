@@ -44,8 +44,7 @@ This project uses Linear modeling to infer over the relationship between the fea
 ## Results
    ### Exploratory Data Analysis (EDA)
    #### Univariate Analysis
-   ![image](https://github.com/user-attachments/assets/9eb285aa-1be2-457e-a47e-5476e8b450b4)
-![image](https://github.com/user-attachments/assets/9169a3bc-f9a8-476a-97fc-48d7d591f058)
+  ![image](https://github.com/user-attachments/assets/9169a3bc-f9a8-476a-97fc-48d7d591f058)
 
      
    #### Bivariate Analysis 
