@@ -55,8 +55,27 @@ This project uses Linear modeling to infer over the relationship between the fea
      #### Final Model
      
    ### Model Validation
-   
-   ### Contributions of Predictors
+    Model Validation In this project, the model's validation was conducted using the following approaches:
+    
+      Residual Analysis:
+    
+    Homoscedasticity: Residual plots were used to check for homoscedasticity, ensuring that residuals had constant variance across all levels of the predicted values. This is important for validating the assumptions of linear regression.
+    
+    Normality of Residuals: QQ plots were used to examine if the residuals followed a normal distribution, which is another key assumption for linear regression.
+    
+     Root Mean Squared Error (RMSE):
+    
+    The RMSE was computed for the test set predictions to quantify the model's prediction error. Lower RMSE values indicate better model performance. RMSE was used at different iterations to compare models and determine improvements.
+    
+     R-Squared and Adjusted R-Squared:
+    
+    These metrics were used to evaluate the proportion of variance in the dependent variable (house prices) explained by the independent variables. An increase in R-Squared from one iteration to the next indicated improved model performance.
+    
+     Train-Test Split:
+    
+    Data was split into training and testing sets (80-20 split) to evaluate the model on unseen data. This helps in assessing the model's ability to generalize to new data.
+  
+  ### Contributions of Predictors
      
 
 ## Conclusions
