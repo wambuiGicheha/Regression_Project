@@ -66,11 +66,11 @@ This project uses Linear modeling to infer over the relationship between the fea
    **Final Model**
 
 
+![image](https://github.com/user-attachments/assets/cc470c1f-5471-4169-9188-08563e876861)
 
    ### Model Validation
-   ![image](https://github.com/user-attachments/assets/a63babbd-f39a-4b11-87e2-c2450491745a)
-
-    Model Validation In this project, the model's validation was conducted using the following approaches:
+   
+Model Validation In this project, the model's validation was conducted using the following approaches:
     
       Residual Analysis:
     
