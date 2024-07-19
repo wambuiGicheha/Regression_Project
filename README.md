@@ -61,7 +61,22 @@ This project uses Linear modeling to infer over the relationship between the fea
   ```
            
    **Baseline Model**
-  
+  X = data['sqft_living']
+y = data['price']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+X_train_const = sm.add_constant(X_train)
+X_test_const = sm.add_constant(X_test)
+
+model = sm.OLS(y_train, X_train_const).fit()
+
+y_pred = model.predict(X_test_const)
+
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+
+print(model.summary())
+print(f'RMSE: {rmse}')
    **Final Model**
      
    ### Model Validation
