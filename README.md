@@ -48,7 +48,8 @@ This project uses Linear modeling to infer over the relationship between the fea
 
      
    #### Bivariate Analysis
-     ![image](https://github.com/user-attachments/assets/f2ae273f-786a-4f27-b4a8-81ed72a1fd3f)
+    ![image](https://github.com/user-attachments/assets/dae892c6-4d7e-40c7-8c10-d4876938a6d7)
+
 
    ### Data Modelling
      
