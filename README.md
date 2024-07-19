@@ -61,9 +61,10 @@ This project uses Linear modeling to infer over the relationship between the fea
   ```
            
    **Baseline Model**
-                                                                                                                            
+      ![image](https://github.com/user-attachments/assets/02e2ea3e-6c35-46f5-b19c-7bf06fae8fd9)
+                                                                                                                      
    **Final Model**
-   ![image](https://github.com/user-attachments/assets/7a8e88c4-2a07-4d70-aadd-fc04d4d77ba8)
+
 
 
    ### Model Validation
