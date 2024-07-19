@@ -43,16 +43,21 @@ This project uses Linear modeling to infer over the relationship between the fea
     
 ## Results
    ### Exploratory Data Analysis (EDA)
-     #### Univariate Analysis
+   #### Univariate Analysis
      
-     #### Bivariate Analysis 
+   #### Bivariate Analysis 
      
    ### Data Modelling
-     #### Preprocessing
-           
-     #### Baseline Model
      
-     #### Final Model
+  **Preprocessing**
+  ```ruby
+   # Encoding categorical variables
+   data_encoded = pd.get_dummies(data, columns= categorical_features, drop_first=True)
+  ```
+           
+   **Baseline Model**
+     
+   **Final Model**
      
    ### Model Validation
     Model Validation In this project, the model's validation was conducted using the following approaches:
@@ -76,7 +81,35 @@ This project uses Linear modeling to infer over the relationship between the fea
     Data was split into training and testing sets (80-20 split) to evaluate the model on unseen data. This helps in assessing the model's ability to generalize to new data.
   
   ### Contributions of Predictors
-     
+```ruby
+    # Calculate contributions in the original scale
+    # Reverse transformations
+    X_train_scaled = scaler.inverse_transform(X_train[numerical_features])
+    X_train_original = np.exp(X_train_scaled) - 1
+    
+    # Combine back with categorical features
+    X_train_original = pd.DataFrame(X_train_original, columns=numerical_features)
+    X_train_original = pd.concat([X_train_original.reset_index(drop=True), X_train.drop(columns=numerical_features).reset_index(drop=True)], axis=1)
+    
+    # Calculate the average value of each feature excluding the constant term
+    feature_means_original = X_train_original.mean()
+    
+    # Extract coefficients excluding the constant term
+    coefficients = model.params.drop('const')
+    
+    # Calculate the contribution of each feature in the original scale
+    contribution = coefficients * feature_means_original
+    
+    # Create a DataFrame to display the results
+    contribution_df = pd.DataFrame({
+        'Feature': contribution.index,
+        'Coefficient': coefficients.values,
+        'Mean Value': feature_means_original.values,
+        'Contribution to Price': contribution.values
+    })
+    
+    contribution_df
+```
 
 ## Conclusions
 After several iterations of refining the model, the final model showed significant improvements:
@@ -87,13 +120,6 @@ After several iterations of refining the model, the final model showed significa
 Further analyses could yield additional insights to further improve results:
 1. Feature Engineering - Create new features such as price per square foot, age of the property, and distance to key amenities. Consider the impact of renovations by calculating the difference between yr_built and yr_renovated.
 2. Geospatial Analysis - Use latitude and longitude data to visualize property locations and analyze spatial patterns. Identify hotspots for high-value properties and areas with potential for growth.
-
-## For More Information
-
-
-
-
-
 
 ## Repository Structure
 
