@@ -81,8 +81,10 @@ y_pred = model.predict(X_test_const)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 
 print(model.summary())
-print(f'RMSE: {rmse}')                                                                                                       ```           
-   **Final Model**
+print(f'RMSE: {rmse}')
+```
+                                                                                                              
+**Final Model**
 
 ```ruby
 X = pd.concat([X_cleaned, data_cleaned[categorical_features]], axis=1)
