@@ -44,10 +44,12 @@ This project uses Linear modeling to infer over the relationship between the fea
 ## Results
    ### Exploratory Data Analysis (EDA)
    #### Univariate Analysis
+
   ![image](https://github.com/user-attachments/assets/9169a3bc-f9a8-476a-97fc-48d7d591f058)
 
      
    #### Bivariate Analysis
+ 
   ![image](https://github.com/user-attachments/assets/0dc92061-0f7d-483f-98b8-910834483926)
 
 
@@ -55,18 +57,68 @@ This project uses Linear modeling to infer over the relationship between the fea
    ### Data Modelling
      
   **Preprocessing**
+  
   ```ruby
    # Encoding categorical variables
    data_encoded = pd.get_dummies(data, columns= categorical_features, drop_first=True)
   ```
            
    **Baseline Model**
-    
-                                                                                                                      
+
+ ```ruby    
+X = data['sqft_living']
+y = data['price']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+X_train_const = sm.add_constant(X_train)
+X_test_const = sm.add_constant(X_test)
+
+model = sm.OLS(y_train, X_train_const).fit()
+
+y_pred = model.predict(X_test_const)
+
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+
+print(model.summary())
+print(f'RMSE: {rmse}')                                                                                                       ```           
    **Final Model**
 
+```ruby
+X = pd.concat([X_cleaned, data_cleaned[categorical_features]], axis=1)
+y = y_cleaned
 
-![image](https://github.com/user-attachments/assets/cc470c1f-5471-4169-9188-08563e876861)
+# Apply log transformation to the numerical features
+numerical_features = ['sqft_living', 'sqft_living15', 'bathrooms']
+X[numerical_features] = X[numerical_features].apply(lambda x: np.log(x + 1))  
+y = np.log(y + 1) 
+
+# Normalize the numerical features
+scaler = StandardScaler()
+X[numerical_features] = scaler.fit_transform(X[numerical_features])
+y = scaler.fit_transform(y.values.reshape(-1, 1)).flatten()
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+X_train_const = sm.add_constant(X_train)
+X_test_const = sm.add_constant(X_test)
+
+model = sm.OLS(y_train, X_train_const).fit()
+
+y_pred_log = model.predict(X_test_const)
+
+# Transform predictions back to the original scale
+y_pred = np.exp(y_pred_log) - 1
+y_test_original = np.exp(y_test) - 1
+
+rmse = np.sqrt(mean_squared_error(y_test_original, y_pred))
+print(model.summary())
+print(f'RMSE: {rmse}')
+
+```
+![image](https://github.com/user-attachments/assets/69864ad8-99a0-49db-b505-9507cd99a8cf)
+
 
    ### Model Validation
    
