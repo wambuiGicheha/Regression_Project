@@ -186,12 +186,4 @@ Further analyses could yield additional insights to further improve results:
 1. Feature Engineering - Create new features such as price per square foot, age of the property, and distance to key amenities. Consider the impact of renovations by calculating the difference between yr_built and yr_renovated.
 2. Geospatial Analysis - Use latitude and longitude data to visualize property locations and analyze spatial patterns. Identify hotspots for high-value properties and areas with potential for growth.
 
-## Repository Structure
 
-```
-├── data
-├── images
-├── README.md
-├── Presentation.pdf
-└── a_analysis.ipynb
-```
